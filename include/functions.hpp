@@ -18,6 +18,7 @@ class functions{
     double Max(double num1, double num2);
     double Min(double num1, double num2);
     double Normalize(double value, double min, double max);
+    double Normalize2(double value, double min, double max);
     const vector<string> split(const string& s, const char& c);
     void CreateOutputDir();
     string ReadFileInput(string file);

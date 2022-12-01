@@ -80,6 +80,10 @@ double functions::Normalize(double value, double min, double max){
     return (value - min) / (max - min);
 }
 
+double functions::Normalize2(double value, double min, double max){
+    return 0.5 + ((value - min) * 0.5) / (max - min);
+}
+
 const vector<string> functions::split(const string& s, const char& c){
     string buff{""};
 	vector<string> v;

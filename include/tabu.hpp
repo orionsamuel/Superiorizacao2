@@ -18,6 +18,7 @@ using namespace std;
 class tabu_search: public functions{
     private:
     double suavityImage[TOTAL_CELLS];
+    double suavityImage2[TOTAL_CELLS];
     individual sBest;
     individual bestCandidate;
     vector<individual> tabuList;

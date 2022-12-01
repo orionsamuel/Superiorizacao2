@@ -312,11 +312,7 @@ void tabu_search::Superiorization(individual image, int idIteration){
         int count = 0;
         while(loop){
             l++;
-            double beta;
-            
-            for(int i = 0; i < TOTAL_CELLS; i++){
-                beta +=  pow(a, l) * suavityImage[i];
-            }
+            double beta = pow(a, l);
 
             individual nextImage;
 
@@ -325,7 +321,7 @@ void tabu_search::Superiorization(individual image, int idIteration){
             }
 
             for(int i = 0; i < TOTAL_CELLS; i++){
-                nextImage.permeability[i] = image.permeability[i] + beta * suavityImage[i];
+                nextImage.permeability[i] = image.permeability[i] + beta * suavityImage2[i] * suavityImage[i];
             }
 
 
@@ -389,10 +385,9 @@ void tabu_search::Init(){
         maxSuavity = Max(maxSuavity, suavityValues[i]);
     }
 
-    double suavityImage2[4200];
-
     for(int i = 0; i < suavityValues.size(); i++){
         this->suavityImage[i] = Normalize(suavityValues[i], minSuavity, maxSuavity);
+        this->suavityImage2[i] = Normalize2(suavityValues[i], minSuavity, maxSuavity);
     }
 
     FirstSimulation();
